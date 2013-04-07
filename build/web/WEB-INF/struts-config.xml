@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="profilechange" type="me.profilechange"/>
+         <form-bean name="adminreg" type="me.adminreg"/>
+        <form-bean name="register" type="me.register"/>
+        <form-bean name="result" type="me.result"/>
+        <form-bean name="viewjob" type="me.viewjob"/>
+        <form-bean name="premiumreg" type="me.premiumreg"/>
+        <form-bean name="organisereg" type="me.organisereg"/>
+        <form-bean name="viewprofile" type="me.viewprofile"/>
+        <form-bean name="changepass" type="me.changepass"/>
+        <form-bean name="normalreg" type="me.normalreg"/>
+        <form-bean name="testbean" type="me.testbean"/>
+        <form-bean name="forgotbean" type="me.forgotbean"/>
+        <form-bean name="signbean" type="me.signbean"/>
+        <form-bean name="mybean" type="me.mybean"/>
+
+    </form-beans>
+
+    <global-exceptions>
+
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action input="/login.jsp" name="mybean" path="/first" scope="request" type="me.myaction" validate="false">
+             <forward name="ok" path="homew" ></forward>
+            <forward name="notok" path="fail" ></forward>
+            </action>
+        <action input="/signup.jsp" name="signbean" path="/second" scope="request" type="me.signaction" validate="false">
+            <forward name="ok" path="successlog"></forward>
+            </action>
+        <action input="/forgot.jsp" name="forgotbean" path="/third" scope="request" type="me.forgotaction" validate="false">
+            <forward name="ok" path="test"></forward>
+            </action>
+        <action input="/test.jsp" name="testbean" path="/fourth" scope="request" type="me.testaction" validate="false">
+            <forward name="ok" path="showpass"></forward>
+            </action>
+        <action input="/normalreg.jsp" name="normalreg" path="/fifth" scope="request" type="me.normalregaction" validate="false">
+            <forward name="ok" path="regw"></forward>
+            </action>
+        <action input="/changepass.jsp" name="changepass" path="/sixth" scope="request" type="me.changepassaction" validate="false">
+            <forward name="ok" path="newpass"></forward>
+
+            </action>
+        <action input="/viewprofile.jsp" name="viewprofile" path="/seventh" scope="request" type="me.viewprofileaction" validate="false">
+
+             <forward name="ok" path="profilechange33"></forward>
+
+            </action>
+        <action input="/Organisereg.jsp" name="organisereg" path="/eighth" scope="request" type="me.organiseregaction" validate="false">
+            <forward name="ok" path="regw2"></forward>
+            </action>
+        <action input="/premiumreg.jsp" name="premiumreg" path="/one" scope="request" type="me.premiumregaction" validate="false">
+           <forward name="ok" path="regw3"></forward>
+            </action>
+
+        <action input="/viewjob.jsp" name="viewjob" path="/two" scope="request" type="me.viewjobac" validate="false">
+        <forward name="ok" path="result1"></forward>
+        </action>
+        <action input="/result1.jsp" name="result" path="/three" scope="request" type="me.resultaction" validate="false">
+        <forward name="ok" path="result2"></forward>
+        </action>
+        <action input="/register.jsp" name="register" path="/four" scope="request" type="me.registeraction" validate="false">
+            <forward name="ok2" path="normalreg"></forward>
+            <forward name="ok4" path="adminreg"></forward>
+            </action>
+        <action input="/adminreg.jsp" name="adminreg" path="/five" scope="request" type="me.adminregaction" validate="false">
+            <forward name="ok" path="regis"></forward>
+            </action>
+        <action input="/profilechange.jsp" name="profilechange" path="/g" scope="request" type="me.profilechangeaction" validate="false">
+            <forward name="ok" path="schange"></forward>
+            <forward name="notok" path="fail2"></forward>
+            </action>
+
+        <action path="/come" forward="main"/>
+    </action-mappings>
+
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>
+
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+
+</struts-config>

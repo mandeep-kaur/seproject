@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+
+<tiles-definitions>
+
+    <!-- sample tiles definitions
+    <definition name=".mainLayout" path="/common/layouts/classicLayout.jsp">
+        <put name="title"  value="Sample Page Title" />
+        <put name="header" value="/common/header.jsp" />
+        <put name="menu"   value=".mainMenu" />
+        <put name="footer" value="/common/footer.jsp" />
+        <put name="body"   value=".portal.body" />
+    </definition>
+
+    <definition name=".mainMenu" path="/common/layouts/vboxLayout.jsp" >
+        <putList name="list" >
+            <add value=".menu.links" />
+            <add value=".menu.taglib.references" />
+            <add value=".menu.printer.friendly" />
+            <add value=".menu.old.documents" />
+      </putList>
+    </definition>
+
+    <definition name="aPage" extends=".mainLayout">
+        <put name="title"  value="Another Title" />
+        <put name="body"   value=".aPage.body" />
+    </definition>
+
+    end samples -->
+
+    <definition name="main" path="/main.jsp">
+
+        <put name="head" value="/header2.jsp" />
+        <put name="body" value="/login.jsp" />
+        <put name="footer" value="" />
+        <put name="footer1" value="/footer.jsp" />
+
+    </definition>
+
+     <definition name="homew" extends="main">
+     <put name="head" value="/header.jsp" />
+       <put name="body" value="/homew.jsp" />
+       <put name="footer1" value="/footer.jsp" />
+    </definition>
+
+     <definition name="fail" extends="main">
+        <put name="footer" value="/fail.jsp" />
+    </definition>
+
+    <definition name="successlog" extends="main">
+        <put name="footer"   value="/successlog.jsp" />
+    </definition>
+
+     <definition name="test" extends="main">
+        <put name="footer"   value="/test.jsp" />
+    </definition>
+     <definition name="showpass" extends="main">
+        <put name="footer"   value="/showpass.jsp" />
+    </definition>
+    <definition name="regw" extends="homew">
+        <put name="footer" value="/regw.jsp" />
+    </definition>
+    <definition name="newpass" extends="homew">
+        <put name="footer" value="/newpass.jsp" />
+    </definition>
+<definition name="profilechange33" extends="homew">
+
+        <put name="footer" value="/profilechange.jsp" />
+    </definition>
+
+     <definition name="regw2" extends="homew">
+
+        <put name="footer" value="/regw.jsp" />
+    </definition>
+    <definition name="premiumreg" extends="homew">
+
+        <put name="footer" value="/premiumreg.jsp" />
+    </definition>
+     <definition name="normalreg" extends="homew">
+
+        <put name="footer" value="/normalreg.jsp" />
+    </definition>
+     <definition name="Organisereg" extends="homew">
+
+        <put name="footer" value="/Organisereg.jsp" />
+    </definition>
+    <definition name="adminreg" extends="homew">
+
+        <put name="footer" value="/adminreg.jsp" />
+    </definition>
+     <definition name="regis" extends="main">
+
+        <put name="footer" value="/regis.jsp" />
+    </definition>
+    <definition name="result2" extends="main">
+
+        <put name="footer" value="/result2.jsp" />
+    </definition>
+    <definition name="result1" extends="main">
+
+        <put name="footer" value="/result1.jsp" />
+    </definition>
+     <definition name="regw3" extends="main">
+
+        <put name="footer" value="/regw.jsp" />
+    </definition>
+    <definition name="schange" extends="homew">
+
+        <put name="footer" value="/schange.jsp" />
+    </definition>
+    <definition name="fail2" extends="homew">
+
+        <put name="footer" value="/fail.jsp" />
+    </definition>
+
+    <definition name="${YOUR_DEFINITION_HERE}">
+    </definition>
+
+</tiles-definitions>
